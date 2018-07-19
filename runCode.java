@@ -1,14 +1,24 @@
+import java.util.Scanner;
+
 class runCode{
   private String source;
   private int index = 0;
   private int now = 0;
+  private int countInput = 0;
+  private byte[] inputSource;
+  private int inputIndex = 0;
+
   // bf実行の際に利用する配列の初期化。配列のインデックスをメモリの値として扱う。
   int[] brainFuckList = new int[1024];
 
   public runCode(String s){
     source = s;
-    // System.out.println(s);
     for(int i = 0; i < brainFuckList.length; i++) brainFuckList[i] = 0;
+
+    if(source.contains(",")){
+      readInput();
+    }
+
     this.run();
   }
 
@@ -35,8 +45,28 @@ class runCode{
       case ".":
         System.out.print((char)brainFuckList[index]);
         break;
-      default:
+      case ",":
+        try{
+          brainFuckList[index] = (int)inputSource[inputIndex];
+          inputIndex++;
+        }catch(Exception e){
+
+        }
         break;
+    }
+  }
+
+  public void readInput(){
+    Scanner sc = new Scanner(System.in);
+    String input = sc.next();
+    for(char c : source.toCharArray()){
+      if(c == ',') countInput++;
+    }
+    try{
+      input = input.substring(0, countInput);
+      inputSource = input.getBytes("US-ASCII");
+    }catch (Exception e){
+      //e.printStackTrace();
     }
   }
 }
