@@ -6,6 +6,7 @@ class runCode{
   private int now = 0;
   private byte[] inputSource;
   private int inputIndex = 0;
+  private int whileIndex = -1;
 
   // bf実行の際に利用する配列の初期化。配列のインデックスをメモリの値として扱う。
   int[] brainFuckList = new int[1024];
@@ -20,8 +21,8 @@ class runCode{
   }
 
   public void run(){
-    for (int i = 4; i < source.length(); i++) {
-      judgeOrder(source.substring(i, i+1));
+    for (now = 4; now < source.length(); now++) {
+      judgeOrder(source.substring(now, now+1));
     }
   }
 
@@ -49,6 +50,12 @@ class runCode{
         }catch(Exception e){
 
         }
+        break;
+      case "[":
+        whileIndex = now;
+        break;
+      case "]":
+        if(brainFuckList[index] > 0) now = whileIndex;
         break;
     }
   }
