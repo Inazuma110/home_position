@@ -4,7 +4,6 @@ class runCode{
   private String source;
   private int index = 0;
   private int now = 0;
-  private int countInput = 0;
   private byte[] inputSource;
   private int inputIndex = 0;
 
@@ -15,9 +14,7 @@ class runCode{
     source = s;
     for(int i = 0; i < brainFuckList.length; i++) brainFuckList[i] = 0;
 
-    if(source.contains(",")){
-      readInput();
-    }
+    if(source.contains(",")) readInput();
 
     this.run();
   }
@@ -59,14 +56,10 @@ class runCode{
   public void readInput(){
     Scanner sc = new Scanner(System.in);
     String input = sc.next();
-    for(char c : source.toCharArray()){
-      if(c == ',') countInput++;
-    }
     try{
-      input = input.substring(0, countInput);
       inputSource = input.getBytes("US-ASCII");
     }catch (Exception e){
-      //e.printStackTrace();
+
     }
   }
 }
