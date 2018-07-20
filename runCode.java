@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Deque;
+import java.util.ArrayDeque;
 
 class runCode{
   private String source;
@@ -6,13 +8,14 @@ class runCode{
   private int now = 0;
   private byte[] inputSource;
   private int inputIndex = 0;
-  private int whileIndex = -1;
+  Deque<Integer> whileIndex;
 
   // bf実行の際に利用する配列の初期化。配列のインデックスをメモリの値として扱う。
   int[] brainFuckList = new int[1024];
 
   public runCode(String s){
     source = s;
+    whileIndex = new ArrayDeque<>();
     for(int i = 0; i < brainFuckList.length; i++) brainFuckList[i] = 0;
 
     if(source.contains(",")) readInput();
@@ -52,10 +55,11 @@ class runCode{
         }
         break;
       case "[":
-        whileIndex = now;
+        whileIndex.addFirst(now);
         break;
       case "]":
-        if(brainFuckList[index] > 0) now = whileIndex;
+        if(brainFuckList[index] > 0) now = whileIndex.peek();
+        else whileIndex.removeFirst();
         break;
     }
   }
