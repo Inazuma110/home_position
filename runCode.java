@@ -11,7 +11,7 @@ class runCode{
   Deque<Integer> whileIndex;
 
   // bf実行の際に利用する配列の初期化。配列のインデックスをメモリの値として扱う。
-  int[] brainFuckList = new int[1024];
+  int[] brainFuckList = new int[100000000];
 
   public runCode(String s){
     source = s;
