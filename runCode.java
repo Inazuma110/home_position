@@ -31,22 +31,22 @@ class runCode{
 
   public void judgeOrder(String order){
     switch (order) {
-      case "+":
+      case "j":
         brainFuckList[index]++;
         break;
-      case "-":
+      case "k":
         brainFuckList[index]--;
         break;
-      case "<":
+      case "h":
         index--;
         break;
-      case ">":
+      case "l":
         index++;
         break;
-      case ".":
+      case "s":
         System.out.print((char)brainFuckList[index]);
         break;
-      case ",":
+      case "a":
         try{
           brainFuckList[index] = (int)inputSource[inputIndex];
           inputIndex++;
@@ -54,10 +54,10 @@ class runCode{
 
         }
         break;
-      case "[":
+      case "d":
         whileIndex.addFirst(now);
         break;
-      case "]":
+      case "f":
         if(brainFuckList[index] > 0) now = whileIndex.peek();
         else whileIndex.removeFirst();
         break;
