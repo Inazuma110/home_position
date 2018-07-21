@@ -36,10 +36,8 @@ class Main{
       ioe.printStackTrace();
     }
 
+    // runCodeインスタンスを作成。
     runCode rc = new runCode(sourceCode);
-    // System.out.println(sourceCode);
 
   }
-
-
 }
