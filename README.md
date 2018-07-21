@@ -21,3 +21,6 @@ java Main ファイル名
 * ] : f
 
 brainf**kの言語仕様については[こちら](https://ja.wikipedia.org/wiki/Brainfuck#cite_note-3)
+
+## License
+MIT
