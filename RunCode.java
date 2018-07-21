@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Deque;
 import java.util.ArrayDeque;
 
-class runCode{
+class RunCode{
   // Stirng型のソースコード
   private String source;
   // 現在地。配列の何番目にいるかを表す。
@@ -32,12 +32,13 @@ class runCode{
   }
 
   public void run(){
-    // 全文字に対し文字列判定し、
+    // sourceの最初の4文字は"null"なのでそこは飛ばす。
     for (now = 4; now < source.length(); now++) {
       judgeOrder(source.substring(now, now+1));
     }
   }
 
+// 文字を判定して、文字によって操作を変更する。
   public void judgeOrder(String order){
     switch (order) {
       case "j":
@@ -55,31 +56,38 @@ class runCode{
       case "s":
         System.out.print((char)homePositionArray[index]);
         break;
+        // 読み取った文字をhomePositionArrayに代入する。
       case "a":
         try{
           homePositionArray[index] = (int)inputSource[inputIndex];
           inputIndex++;
         }catch(Exception e){
-
+          // 処理なし
         }
         break;
+        // whileIndexにdの位置を保存。
       case "d":
         whileIndex.addFirst(now);
         break;
       case "f":
+        // 現在地のhomePositionArrayの値が0でなければnowの値をdの位置に変更し、ループ処理をする。
         if(homePositionArray[index] > 0) now = whileIndex.peek();
+        // 0ならスタックから排除。
         else whileIndex.removeFirst();
         break;
     }
   }
 
+  
+  // 入力された文字をByte型に変換。
   public void readInput(){
     Scanner sc = new Scanner(System.in);
     String input = sc.next();
     try{
+      // 入力された文字をByte型に変換。
       inputSource = input.getBytes("US-ASCII");
     }catch (Exception e){
-
+      // 処理なし
     }
   }
 }
