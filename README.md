@@ -7,6 +7,10 @@ Brainf**kの亜種をつくる。HomePositionベースで打ちやすい(多分)
 ```sh
 java Main ファイル名
 ```
+または、
+```sh
+java -jar home_position.jar ファイル名
+```
 で実行。
 
 ## Brainfuckとの比較
