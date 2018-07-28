@@ -13,7 +13,7 @@ java Main ファイル名
 java -jar home_position.jar ファイル名
 ```
 で実行。
-how_to/pdfにもう少し丁寧にまとめてあります。
+how_to.pdfにもう少し丁寧にまとめてあります。
 
 ## Brainfuckとの比較
 
