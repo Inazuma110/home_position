@@ -19,7 +19,12 @@ class RunCode{
   int[] homePositionArray = new int[100000000];
 
 
-  public runCode(String s){
+  /**
+   * 詠みこんだファイルの実行を行う。
+   * ファイルを読み込み、runメソッドを実行する。
+   * @param s ファイルから読み込んだ文字列。
+   */
+  public RunCode(String s){
     // Mainクラスより受け取ったファイルの文字列をsourceに保持。
     source = s;
     whileIndex = new ArrayDeque<>();
@@ -31,6 +36,9 @@ class RunCode{
     this.run();
   }
 
+  /**
+   * ソースコードを1文字ずつ解析し実行する。
+   */
   public void run(){
     // sourceの最初の4文字は"null"なのでそこは飛ばす。
     for (now = 4; now < source.length(); now++) {
@@ -38,7 +46,10 @@ class RunCode{
     }
   }
 
-// 文字を判定して、文字によって操作を変更する。
+  /**
+   * 文字を判定して、文字によって操作を変更する。
+   * @param order ソースコードのnow番目の文字。
+   */
   public void judgeOrder(String order){
     switch (order) {
       case "j":
@@ -78,8 +89,9 @@ class RunCode{
     }
   }
 
-  
-  // 入力された文字をByte型に変換。
+  /**
+   * 入力された文字をByte型に変換。
+   */
   public void readInput(){
     Scanner sc = new Scanner(System.in);
     String input = sc.next();

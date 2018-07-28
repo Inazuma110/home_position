@@ -37,7 +37,6 @@ class Main{
     }
 
     // runCodeインスタンスを作成。
-    runCode rc = new runCode(sourceCode);
-
+    RunCode rc = new RunCode(sourceCode);
   }
 }
