@@ -2,6 +2,7 @@
 応用プログラミングIIIの課題。
 Brainf**kの亜種をつくる。HomePositionベースで打ちやすい(多分)
 
+
 ## 使い方
 コンパイル後に、
 ```sh
@@ -12,6 +13,7 @@ java Main ファイル名
 java -jar home_position.jar ファイル名
 ```
 で実行。
+how_to/pdfにもう少し丁寧にまとめてあります。
 
 ## Brainfuckとの比較
 
