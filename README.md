@@ -2,6 +2,9 @@
 応用プログラミングIIIの課題。
 Brainf**kの亜種をつくる。HomePositionベースで打ちやすい(多分)
 
+HomePosition開発用のVim Pluginを実装しました！！
+https://github.com/Inazuma110/homeposition.vim
+
 
 ## 使い方
 コンパイル後に、
